@@ -90,3 +90,6 @@ ENV/
 
 # Project excludes
 venv
+d/events.json
+js/event-data.gz
+js/event-data.js

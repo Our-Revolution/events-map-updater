@@ -1,0 +1,1 @@
+This file merely exists so git will sync an "empty" folder, since we can't create folders on a Heroku dyno, but we also don't want to commit event data because it might overwrite the s# bucket with old data.
