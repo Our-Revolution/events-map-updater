@@ -87,3 +87,9 @@ ENV/
 
 # Rope project settings
 .ropeproject
+
+# Project excludes
+d/events.json
+js/event-data.js
+js/event-data.gz
+venv
