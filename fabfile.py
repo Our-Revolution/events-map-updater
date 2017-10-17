@@ -43,6 +43,12 @@ def update_event_data():
     resp_PR = requests.get(events_url_PR)
     data_PR = json.loads(resp_PR.text)
 
+    # TODO: Add support for all international events, not just France
+    events_url_FR = 'http://go.ourrevolution.com/page/event/search_results?country=FR&limit=100&format=json'
+    print "Fetching events from %s" % events_url_FR
+    resp_FR = requests.get(events_url_FR)
+    data_FR = json.loads(resp_FR.text)
+
     def clean_result(row):
         global rsvp_count
         for key in ['description', 'closed_msg', 'distance']:
@@ -65,7 +71,7 @@ def update_event_data():
         rsvp_count += row['attendee_count'] if 'attendee_count' in row else 0
         return row
 
-    data_out = {'results': map(clean_result, data['results'] + data_PR['results'])}
+    data_out = {'results': map(clean_result, data['results'] + data_PR['results'] + data_FR['results'])}
 
 
     data['settings']['rsvp'] = rsvp_count
